@@ -113,6 +113,21 @@ public class MainActivity extends AppCompatActivity {
                     new int[]{R.id.title, R.id.description});
             lv.setAdapter(adapter);
 
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent myIntent=new Intent(MainActivity.this,InfoActivity.class);
+                    myIntent.putExtra("image",imageList.get(position).get("image"));
+                    myIntent.putExtra("title",imageList.get(position).get("title"));
+                    myIntent.putExtra("description",imageList.get(position).get("description"));
+
+                    MainActivity.this.startActivity(myIntent);
+                }
+            });
+
         }
     }
 
